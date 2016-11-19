@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:cxf="http://cxf.apache.org/core"
+        xmlns:jaxws="http://cxf.apache.org/jaxws"
+        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+        xsi:schemaLocation="
+            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+        </cxf:features>
+    </cxf:bus>
+
+    <bean id="bancoServiceClass" class="br.com.ibk.rest.service.BancoServiceImpl"/>
+    <bean id="contaBancariaServiceClass" class="br.com.ibk.rest.service.ContaBancariaServiceImpl"/>
+    <bean id="enderecoServiceClass" class="br.com.ibk.rest.service.EnderecoServiceImpl"/>
+    <bean id="clienteServiceClass" class="br.com.ibk.rest.service.ClienteServiceImpl"/>
+    
+    <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+    
+    <jaxrs:server id="bancoService" address="/api/banco">
+        <jaxrs:serviceBeans>
+            <ref bean="bancoServiceClass"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean='jsonProvider' />
+        </jaxrs:providers>
+    </jaxrs:server>
+    
+    <jaxrs:server id="contaBancariaService" address="/api/contabancaria">
+        <jaxrs:serviceBeans>
+            <ref bean="contaBancariaServiceClass"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean='jsonProvider' />
+        </jaxrs:providers>
+    </jaxrs:server>
+    
+    <jaxrs:server id="enderecoService" address="/api/endereco">
+        <jaxrs:serviceBeans>
+            <ref bean="enderecoServiceClass"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean='jsonProvider' />
+        </jaxrs:providers>
+    </jaxrs:server>
+    
+    <jaxrs:server id="clienteService" address="/api/cliente">
+        <jaxrs:serviceBeans>
+            <ref bean="clienteServiceClass"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean='jsonProvider' />
+        </jaxrs:providers>
+    </jaxrs:server>
+
+</beans>

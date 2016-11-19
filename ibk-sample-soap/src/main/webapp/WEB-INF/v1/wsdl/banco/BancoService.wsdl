@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BancoService" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    targetNamespace="http://ibk.com.br/v1/banco" 
+    xmlns:tns="http://ibk.com.br/v1/banco" 
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/banco">
+            <xsd:include schemaLocation="BancoService.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="listarBancoInputMsg">
+    </wsdl:message>
+    
+    <wsdl:message name="listarBancoOutputMsg">
+        <wsdl:part name="output" element="tns:listarBancoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="listarBancoPorIdInputMsg">
+        <wsdl:part name="input" element="tns:listarBancoPorIdInput" />
+    </wsdl:message>
+    <wsdl:message name="listarBancoPorIdOutputMsg">
+        <wsdl:part name="output" element="tns:listarBancoPorIdOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="inserirBancoInputMsg">
+        <wsdl:part name="input" element="tns:inserirBancoInput" />
+    </wsdl:message>
+    <wsdl:message name="inserirBancoOutputMsg">
+        <wsdl:part name="output" element="tns:inserirBancoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="alterarBancoInputMsg">
+        <wsdl:part name="input" element="tns:alterarBancoInput" />
+    </wsdl:message>
+    <wsdl:message name="alterarBancoOutputMsg">
+        <wsdl:part name="output" element="tns:alterarBancoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="removerBancoInputMsg">
+        <wsdl:part name="input" element="tns:removerBancoInput" />
+    </wsdl:message>
+    <wsdl:message name="removerBancoOutputMsg">
+        <wsdl:part name="output" element="tns:removerBancoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="bancoFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="BancoPortType">
+        <wsdl:operation name="listarBanco">
+            <wsdl:input name="listarBancoInput" message="tns:listarBancoInputMsg" />
+            <wsdl:output name="listarBancoOutput" message="tns:listarBancoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:bancoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="listarBancoPorId">
+            <wsdl:input name="listarBancoPorIdInput" message="tns:listarBancoPorIdInputMsg" />
+            <wsdl:output name="listarBancoPorIdOutput" message="tns:listarBancoPorIdOutputMsg" />
+            <wsdl:fault name="fault" message="tns:bancoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="inserirBanco">
+            <wsdl:input name="inserirBancoInput" message="tns:inserirBancoInputMsg" />
+            <wsdl:output name="inserirBancoOutput" message="tns:inserirBancoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:bancoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="alterarBanco">
+            <wsdl:input name="alterarBancoInput" message="tns:alterarBancoInputMsg" />
+            <wsdl:output name="alterarBancoOutput" message="tns:alterarBancoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:bancoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="removerBanco">
+            <wsdl:input name="removerBancoInput" message="tns:removerBancoInputMsg" />
+            <wsdl:output name="removerBancoOutput" message="tns:removerBancoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:bancoFault" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="BancoBinding" type="tns:BancoPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="listarBanco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarBancoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarBancoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listarBancoPorId">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarBancoPorIdInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarBancoPorIdOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="inserirBanco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="inserirBancoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="inserirBancoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="alterarBanco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="alterarBancoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="alterarBancoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="removerBanco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="removerBancoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="removerBancoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="BancoService">
+        <wsdl:port name="BancoPort" binding="tns:BancoBinding">
+            <soap:address location="http://localhost:8080/ibk-sample-soap/v1/banco/BancoService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

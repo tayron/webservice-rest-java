@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ibk.com.br/v1/ebo" 
+    xmlns:tns="http://ibk.com.br/v1/ebo">
+    
+    <xsd:include schemaLocation="Banco.xsd" />
+    <xsd:include schemaLocation="Cliente.xsd" />
+    
+    <xsd:complexType name="ContaBancariaType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:int" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="numero-agencia" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="digito-verificador-agencia" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="numero-conta" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="digito-verificador-conta" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="banco" type="tns:BancoType" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="saldo" type="xsd:double" maxOccurs="1" minOccurs="1" />
+            <xsd:element name="cliente" type="tns:ClienteType" maxOccurs="1" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ContaBancariaTypeArrayOf">
+        <xsd:sequence>
+            <xsd:element type="tns:ContaBancariaType" name="conta-bancaria" maxOccurs="unbounded" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

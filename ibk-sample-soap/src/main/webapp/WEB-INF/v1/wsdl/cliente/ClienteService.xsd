@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+        version="1.0"
+        elementFormDefault="unqualified"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ibk.com.br/v1/cliente"
+        xmlns:tns="http://ibk.com.br/v1/cliente"
+        xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+    <xsd:import namespace="http://ibk.com.br/v1/ebo" schemaLocation="../../ebo/Cliente.xsd" />
+
+    <xsd:element name="listarClienteOutput" type="tns:listarClienteOutputType" />
+    
+    <xsd:complexType name="listarClienteOutputType">
+        <xsd:sequence>
+            <xsd:element name="lista-cliente" type="ebo:ClienteTypeArrayOf" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="listarClientePorIdInput" type="tns:listarClientePorIdInputType" />
+    <xsd:element name="listarClientePorIdOutput" type="tns:listarClientePorIdOutputType" />
+    
+    <xsd:complexType name="listarClientePorIdInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarClientePorIdOutputType">
+        <xsd:sequence>
+            <xsd:element name="cliente" type="ebo:ClienteType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="inserirClienteInput" type="tns:inserirClienteInputType" />
+    <xsd:element name="inserirClienteOutput" type="tns:inserirClienteOutputType" />
+    
+    <xsd:complexType name="inserirClienteInputType">
+        <xsd:sequence>
+            <xsd:element name="cliente" type="ebo:ClienteType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inserirClienteOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="alterarClienteInput" type="tns:alterarClienteInputType" />
+    <xsd:element name="alterarClienteOutput" type="tns:alterarClienteOutputType" />
+    
+    <xsd:complexType name="alterarClienteInputType">
+        <xsd:sequence>
+            <xsd:element name="cliente" type="ebo:ClienteType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="alterarClienteOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="removerClienteInput" type="tns:removerClienteInputType" />
+    <xsd:element name="removerClienteOutput" type="tns:removerClienteOutputType" />
+    
+    <xsd:complexType name="removerClienteInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="removerClienteOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

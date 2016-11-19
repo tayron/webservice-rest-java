@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+        version="1.0"
+        elementFormDefault="unqualified"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ibk.com.br/v1/banco"
+        xmlns:tns="http://ibk.com.br/v1/banco"
+        xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+    <xsd:import namespace="http://ibk.com.br/v1/ebo" schemaLocation="../../ebo/Banco.xsd" />
+
+    <xsd:element name="listarBancoOutput" type="tns:listarBancoOutputType" />
+    
+    <xsd:complexType name="listarBancoOutputType">
+        <xsd:sequence>
+            <xsd:element name="lista-banco" type="ebo:BancoTypeArrayOf" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="listarBancoPorIdInput" type="tns:listarBancoPorIdInputType" />
+    <xsd:element name="listarBancoPorIdOutput" type="tns:listarBancoPorIdOutputType" />
+    
+    <xsd:complexType name="listarBancoPorIdInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarBancoPorIdOutputType">
+        <xsd:sequence>
+            <xsd:element name="banco" type="ebo:BancoType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="inserirBancoInput" type="tns:inserirBancoInputType" />
+    <xsd:element name="inserirBancoOutput" type="tns:inserirBancoOutputType" />
+    
+    <xsd:complexType name="inserirBancoInputType">
+        <xsd:sequence>
+            <xsd:element name="banco" type="ebo:BancoType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inserirBancoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="alterarBancoInput" type="tns:alterarBancoInputType" />
+    <xsd:element name="alterarBancoOutput" type="tns:alterarBancoOutputType" />
+    
+    <xsd:complexType name="alterarBancoInputType">
+        <xsd:sequence>
+            <xsd:element name="banco" type="ebo:BancoType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="alterarBancoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="removerBancoInput" type="tns:removerBancoInputType" />
+    <xsd:element name="removerBancoOutput" type="tns:removerBancoOutputType" />
+    
+    <xsd:complexType name="removerBancoInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="removerBancoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

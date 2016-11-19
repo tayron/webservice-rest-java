@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ibk.com.br/v1/ebo" 
+    xmlns:tns="http://ibk.com.br/v1/ebo"
+    xmlns:enum="http://ibk.com.br/v1/enumeration">
+
+    <xsd:include schemaLocation="Endereco.xsd" />
+
+    <xsd:import schemaLocation="../enumeration/EnumerationTypes.xsd" namespace="http://ibk.com.br/v1/enumeration" />
+
+    <xsd:complexType name="ClienteType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:int" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="nome" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="endereco" type="tns:EnderecoType" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="cpf" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="sexo" type="enum:SexoEnumType" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="nacionalidade" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="profissao" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="email" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="documento-identidade" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="sigla-orgao-expedidor" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="data-nascimento" type="xsd:date" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="estado-civil" type="enum:EstadoCivilType" maxOccurs="1" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ClienteTypeArrayOf">
+        <xsd:sequence>
+            <xsd:element type="tns:ClienteType" name="cliente" maxOccurs="unbounded" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

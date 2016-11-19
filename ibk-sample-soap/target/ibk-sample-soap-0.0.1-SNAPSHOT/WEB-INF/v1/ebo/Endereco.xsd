@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ibk.com.br/v1/ebo" 
+    xmlns:tns="http://ibk.com.br/v1/ebo"
+    xmlns:enum="http://ibk.com.br/v1/enumeration">
+    
+    <xsd:import schemaLocation="../enumeration/EnumerationTypes.xsd" namespace="http://ibk.com.br/v1/enumeration" />
+    
+    <xsd:complexType name="EnderecoType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:int" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="cep" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="nome-logradouro" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="numero-logradouro" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="complemento" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="bairro" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="municipio" type="xsd:string" maxOccurs="1" minOccurs="0" />
+            <xsd:element name="uf" type="enum:UfEnumType" maxOccurs="1" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="EnderecoTypeArrayOf">
+        <xsd:sequence>
+            <xsd:element type="tns:EnderecoType" name="endereco" maxOccurs="unbounded" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

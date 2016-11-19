@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://ibk.com.br/v1/enumeration" 
+xmlns:tns="http://ibk.com.br/v1/enumeration">
+
+    <xsd:simpleType name="SimOuNaoEnumType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SIM" />
+            <xsd:enumeration value="NAO" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="EstadoCivilType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SOLTEIRO" />
+            <xsd:enumeration value="CASADO" />
+            <xsd:enumeration value="DIVORCIADO" />
+            <xsd:enumeration value="VIUVO" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="SexoEnumType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MASCULINO" />
+            <xsd:enumeration value="FEMININO" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="TipoPessoaEnumType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="PF" />
+            <xsd:enumeration value="PJ" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="UfEnumType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AC" />
+            <xsd:enumeration value="AL" />
+            <xsd:enumeration value="AP" />
+            <xsd:enumeration value="AM" />
+            <xsd:enumeration value="BA" />
+            <xsd:enumeration value="CE" />
+            <xsd:enumeration value="DF" />
+            <xsd:enumeration value="ES" />
+            <xsd:enumeration value="GO" />
+            <xsd:enumeration value="MA" />
+            <xsd:enumeration value="MT" />
+            <xsd:enumeration value="MS" />
+            <xsd:enumeration value="MG" />
+            <xsd:enumeration value="PA" />
+            <xsd:enumeration value="PB" />
+            <xsd:enumeration value="PR" />
+            <xsd:enumeration value="PE" />
+            <xsd:enumeration value="PI" />
+            <xsd:enumeration value="RJ" />
+            <xsd:enumeration value="RN" />
+            <xsd:enumeration value="RS" />
+            <xsd:enumeration value="RO" />
+            <xsd:enumeration value="RR" />
+            <xsd:enumeration value="SC" />
+            <xsd:enumeration value="SP" />
+            <xsd:enumeration value="SE" />
+            <xsd:enumeration value="TO" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

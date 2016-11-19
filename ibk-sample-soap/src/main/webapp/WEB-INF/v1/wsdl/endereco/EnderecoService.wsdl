@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EnderecoService" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    targetNamespace="http://ibk.com.br/v1/endereco" 
+    xmlns:tns="http://ibk.com.br/v1/endereco" 
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/endereco">
+            <xsd:include schemaLocation="EnderecoService.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="listarEnderecoInputMsg">
+    </wsdl:message>
+    
+    <wsdl:message name="listarEnderecoOutputMsg">
+        <wsdl:part name="output" element="tns:listarEnderecoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="listarEnderecoPorIdInputMsg">
+        <wsdl:part name="input" element="tns:listarEnderecoPorIdInput" />
+    </wsdl:message>
+    <wsdl:message name="listarEnderecoPorIdOutputMsg">
+        <wsdl:part name="output" element="tns:listarEnderecoPorIdOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="inserirEnderecoInputMsg">
+        <wsdl:part name="input" element="tns:inserirEnderecoInput" />
+    </wsdl:message>
+    <wsdl:message name="inserirEnderecoOutputMsg">
+        <wsdl:part name="output" element="tns:inserirEnderecoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="alterarEnderecoInputMsg">
+        <wsdl:part name="input" element="tns:alterarEnderecoInput" />
+    </wsdl:message>
+    <wsdl:message name="alterarEnderecoOutputMsg">
+        <wsdl:part name="output" element="tns:alterarEnderecoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="removerEnderecoInputMsg">
+        <wsdl:part name="input" element="tns:removerEnderecoInput" />
+    </wsdl:message>
+    <wsdl:message name="removerEnderecoOutputMsg">
+        <wsdl:part name="output" element="tns:removerEnderecoOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="enderecoFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="EnderecoPortType">
+        <wsdl:operation name="listarEndereco">
+            <wsdl:input name="listarEnderecoInput" message="tns:listarEnderecoInputMsg" />
+            <wsdl:output name="listarEnderecoOutput" message="tns:listarEnderecoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:enderecoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="listarEnderecoPorId">
+            <wsdl:input name="listarEnderecoPorIdInput" message="tns:listarEnderecoPorIdInputMsg" />
+            <wsdl:output name="listarEnderecoPorIdOutput" message="tns:listarEnderecoPorIdOutputMsg" />
+            <wsdl:fault name="fault" message="tns:enderecoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="inserirEndereco">
+            <wsdl:input name="inserirEnderecoInput" message="tns:inserirEnderecoInputMsg" />
+            <wsdl:output name="inserirEnderecoOutput" message="tns:inserirEnderecoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:enderecoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="alterarEndereco">
+            <wsdl:input name="alterarEnderecoInput" message="tns:alterarEnderecoInputMsg" />
+            <wsdl:output name="alterarEnderecoOutput" message="tns:alterarEnderecoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:enderecoFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="removerEndereco">
+            <wsdl:input name="removerEnderecoInput" message="tns:removerEnderecoInputMsg" />
+            <wsdl:output name="removerEnderecoOutput" message="tns:removerEnderecoOutputMsg" />
+            <wsdl:fault name="fault" message="tns:enderecoFault" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="EnderecoBinding" type="tns:EnderecoPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="listarEndereco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarEnderecoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarEnderecoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listarEnderecoPorId">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarEnderecoPorIdInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarEnderecoPorIdOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="inserirEndereco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="inserirEnderecoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="inserirEnderecoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="alterarEndereco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="alterarEnderecoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="alterarEnderecoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="removerEndereco">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="removerEnderecoInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="removerEnderecoOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="EnderecoService">
+        <wsdl:port name="EnderecoPort" binding="tns:EnderecoBinding">
+            <soap:address location="http://localhost:8080/ibk-sample-soap/v1/endereco/EnderecoService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

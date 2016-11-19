@@ -1,0 +1,1489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cc9de254-8c0d-4310-8a8f-a276a18fc178" activeEnvironment="Default" name="ibk-soap-sample" resourceRoot="" soapui-version="5.2.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="95a0fca2-daca-41a0-bd6a-7795fc1872c4" wsaVersion="NONE" name="BancoServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://service.ibk.com.br/}BancoServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService?wsdl"><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BancoServiceImplService" targetNamespace="http://service.ibk.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.ibk.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ibk.com.br/v1/banco">
+  <wsdl:import location="http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService?wsdl=BancoPortType.wsdl" namespace="http://ibk.com.br/v1/banco"></wsdl:import>
+  <wsdl:binding name="BancoServiceImplServiceSoapBinding" type="ns1:BancoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listarBanco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarBanco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarBancoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BancoFault">
+        <soap:fault name="BancoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarBanco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="alterarBanco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="alterarBancoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BancoFault">
+        <soap:fault name="BancoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerBanco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerBanco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerBancoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BancoFault">
+        <soap:fault name="BancoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirBanco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inserirBanco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inserirBancoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BancoFault">
+        <soap:fault name="BancoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarBancoPorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarBancoPorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarBancoPorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BancoFault">
+        <soap:fault name="BancoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BancoServiceImplService">
+    <wsdl:port binding="tns:BancoServiceImplServiceSoapBinding" name="BancoServiceImplPort">
+      <soap:address location="http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService?wsdl=BancoPortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BancoPortType" targetNamespace="http://ibk.com.br/v1/banco" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://ibk.com.br/v1/fault" xmlns:ns1="http://ibk.com.br/v1/banco">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/fault" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/fault">
+      <xs:element name="servicoFault" type="tns:ServicoFaultType"/>
+      <xs:complexType name="ServicoFaultType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="servico-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="servico-erro-descricao" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro-descricao" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/enumeration" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="UfEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AC"/>
+          <xs:enumeration value="AL"/>
+          <xs:enumeration value="AP"/>
+          <xs:enumeration value="AM"/>
+          <xs:enumeration value="BA"/>
+          <xs:enumeration value="CE"/>
+          <xs:enumeration value="DF"/>
+          <xs:enumeration value="ES"/>
+          <xs:enumeration value="GO"/>
+          <xs:enumeration value="MA"/>
+          <xs:enumeration value="MT"/>
+          <xs:enumeration value="MS"/>
+          <xs:enumeration value="MG"/>
+          <xs:enumeration value="PA"/>
+          <xs:enumeration value="PB"/>
+          <xs:enumeration value="PR"/>
+          <xs:enumeration value="PE"/>
+          <xs:enumeration value="PI"/>
+          <xs:enumeration value="RJ"/>
+          <xs:enumeration value="RN"/>
+          <xs:enumeration value="RS"/>
+          <xs:enumeration value="RO"/>
+          <xs:enumeration value="RR"/>
+          <xs:enumeration value="SC"/>
+          <xs:enumeration value="SP"/>
+          <xs:enumeration value="SE"/>
+          <xs:enumeration value="TO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://ibk.com.br/v1/ebo" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/ebo" xmlns:ns1="http://ibk.com.br/v1/enumeration">
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:complexType name="BancoTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="banco" nillable="true" type="tns:BancoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BancoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="cep" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="numero-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="complemento" type="xs:string"/>
+          <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+          <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+          <xs:element minOccurs="0" name="uf" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endereco" nillable="true" type="tns:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/banco" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/banco" xmlns:ns1="http://ibk.com.br/v1/ebo">
+      <xs:import namespace="http://ibk.com.br/v1/ebo"/>
+      <xs:element name="alterarBancoInput" type="tns:alterarBancoInputType"/>
+      <xs:element name="alterarBancoOutput" type="tns:alterarBancoOutputType"/>
+      <xs:element name="inserirBancoInput" type="tns:inserirBancoInputType"/>
+      <xs:element name="inserirBancoOutput" type="tns:inserirBancoOutputType"/>
+      <xs:element name="listarBancoOutput" type="tns:listarBancoOutputType"/>
+      <xs:element name="listarBancoPorIdInput" type="tns:listarBancoPorIdInputType"/>
+      <xs:element name="listarBancoPorIdOutput" type="tns:listarBancoPorIdOutputType"/>
+      <xs:element name="removerBancoInput" type="tns:removerBancoInputType"/>
+      <xs:element name="removerBancoOutput" type="tns:removerBancoOutputType"/>
+      <xs:complexType name="listarBancoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lista-banco" type="ns1:BancoTypeArrayOf"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarBancoInputType">
+        <xs:sequence>
+          <xs:element name="banco" type="ns1:BancoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarBancoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerBancoInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerBancoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirBancoInputType">
+        <xs:sequence>
+          <xs:element name="banco" type="ns1:BancoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirBancoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarBancoPorIdInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarBancoPorIdOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="banco" type="ns1:BancoType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="inserirBancoResponse">
+    <wsdl:part element="ns1:inserirBancoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerBanco">
+    <wsdl:part element="ns1:removerBancoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarBanco"></wsdl:message>
+  <wsdl:message name="listarBancoResponse">
+    <wsdl:part element="ns1:listarBancoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarBanco">
+    <wsdl:part element="ns1:alterarBancoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarBancoResponse">
+    <wsdl:part element="ns1:alterarBancoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserirBanco">
+    <wsdl:part element="ns1:inserirBancoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BancoFault">
+    <wsdl:part element="ns2:servicoFault" name="BancoFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerBancoResponse">
+    <wsdl:part element="ns1:removerBancoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarBancoPorId">
+    <wsdl:part element="ns1:listarBancoPorIdInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarBancoPorIdResponse">
+    <wsdl:part element="ns1:listarBancoPorIdOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BancoPortType">
+    <wsdl:operation name="listarBanco">
+      <wsdl:input message="ns1:listarBanco" name="listarBanco"></wsdl:input>
+      <wsdl:output message="ns1:listarBancoResponse" name="listarBancoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:BancoFault" name="BancoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarBanco">
+      <wsdl:input message="ns1:alterarBanco" name="alterarBanco"></wsdl:input>
+      <wsdl:output message="ns1:alterarBancoResponse" name="alterarBancoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:BancoFault" name="BancoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerBanco">
+      <wsdl:input message="ns1:removerBanco" name="removerBanco"></wsdl:input>
+      <wsdl:output message="ns1:removerBancoResponse" name="removerBancoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:BancoFault" name="BancoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirBanco">
+      <wsdl:input message="ns1:inserirBanco" name="inserirBanco"></wsdl:input>
+      <wsdl:output message="ns1:inserirBancoResponse" name="inserirBancoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:BancoFault" name="BancoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarBancoPorId">
+      <wsdl:input message="ns1:listarBancoPorId" name="listarBancoPorId"></wsdl:input>
+      <wsdl:output message="ns1:listarBancoPorIdResponse" name="listarBancoPorIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:BancoFault" name="BancoFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint></con:endpoints><con:operation id="d17be292-e93c-4d03-a95b-34fb5375ead0" isOneWay="false" action="" name="alterarBanco" bindingOperationName="alterarBanco" type="Request-Response" outputName="alterarBancoResponse" inputName="alterarBanco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="22606c76-6481-4b39-9b65-33158c5bfd9e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://ibk.com.br/v1/banco" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:alterarBancoInput>
+         <banco>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:nome>?</ebo:nome>
+         </banco>
+      </ban:alterarBancoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/BancoPortType/alterarBanco"/></con:call></con:operation><con:operation id="8a9df9dd-6746-4040-a1f8-f6dfed5232c6" isOneWay="false" action="" name="inserirBanco" bindingOperationName="inserirBanco" type="Request-Response" outputName="inserirBancoResponse" inputName="inserirBanco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="06b0f0ab-3faf-4ab1-9ac8-38923c84263a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://ibk.com.br/v1/banco" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:inserirBancoInput>
+         <banco>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:nome>?</ebo:nome>
+         </banco>
+      </ban:inserirBancoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/BancoPortType/inserirBanco"/></con:call></con:operation><con:operation id="1ccd997a-057a-4ea4-8cba-8b568a9ee83c" isOneWay="false" action="" name="listarBanco" bindingOperationName="listarBanco" type="Request-Response" outputName="listarBancoResponse" inputName="listarBanco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4a9e7291-916d-4d15-aaa6-c6bd44b2cf70" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/BancoPortType/listarBanco"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c7738cd0-61ae-493f-805b-e5db5a1976b8" isOneWay="false" action="" name="listarBancoPorId" bindingOperationName="listarBancoPorId" type="Request-Response" outputName="listarBancoPorIdResponse" inputName="listarBancoPorId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7215464f-9667-4a46-815f-3f6e2233b0cd" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://ibk.com.br/v1/banco">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:listarBancoPorIdInput>
+         <id>33</id>
+      </ban:listarBancoPorIdInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/BancoPortType/listarBancoPorId"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c1ca3a2b-32b4-4671-acd0-6b3f32a80807" isOneWay="false" action="" name="removerBanco" bindingOperationName="removerBanco" type="Request-Response" outputName="removerBancoResponse" inputName="removerBanco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="50ca9103-49f3-4b17-9164-84ecee1e5dbf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/BancoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://ibk.com.br/v1/banco">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:removerBancoInput>
+         <id>?</id>
+      </ban:removerBancoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/BancoPortType/removerBanco"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="a3bc0aa6-6240-45eb-85b7-6800374b0aae" wsaVersion="NONE" name="EnderecoServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://service.ibk.com.br/}EnderecoServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService?wsdl"><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="EnderecoServiceImplService" targetNamespace="http://service.ibk.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.ibk.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ibk.com.br/v1/endereco">
+  <wsdl:import location="http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService?wsdl=EnderecoPortType.wsdl" namespace="http://ibk.com.br/v1/endereco"></wsdl:import>
+  <wsdl:binding name="EnderecoServiceImplServiceSoapBinding" type="ns1:EnderecoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listarEndereco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarEndereco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarEnderecoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnderecoFault">
+        <soap:fault name="EnderecoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirEndereco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inserirEndereco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inserirEnderecoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnderecoFault">
+        <soap:fault name="EnderecoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarEnderecoPorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarEnderecoPorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarEnderecoPorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnderecoFault">
+        <soap:fault name="EnderecoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarEndereco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="alterarEndereco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="alterarEnderecoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnderecoFault">
+        <soap:fault name="EnderecoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerEndereco">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerEndereco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerEnderecoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EnderecoFault">
+        <soap:fault name="EnderecoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnderecoServiceImplService">
+    <wsdl:port binding="tns:EnderecoServiceImplServiceSoapBinding" name="EnderecoServiceImplPort">
+      <soap:address location="http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService?wsdl=EnderecoPortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="EnderecoPortType" targetNamespace="http://ibk.com.br/v1/endereco" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://ibk.com.br/v1/fault" xmlns:ns1="http://ibk.com.br/v1/endereco">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/fault" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/fault">
+      <xs:element name="servicoFault" type="tns:ServicoFaultType"/>
+      <xs:complexType name="ServicoFaultType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="servico-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="servico-erro-descricao" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro-descricao" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/enumeration" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="UfEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AC"/>
+          <xs:enumeration value="AL"/>
+          <xs:enumeration value="AP"/>
+          <xs:enumeration value="AM"/>
+          <xs:enumeration value="BA"/>
+          <xs:enumeration value="CE"/>
+          <xs:enumeration value="DF"/>
+          <xs:enumeration value="ES"/>
+          <xs:enumeration value="GO"/>
+          <xs:enumeration value="MA"/>
+          <xs:enumeration value="MT"/>
+          <xs:enumeration value="MS"/>
+          <xs:enumeration value="MG"/>
+          <xs:enumeration value="PA"/>
+          <xs:enumeration value="PB"/>
+          <xs:enumeration value="PR"/>
+          <xs:enumeration value="PE"/>
+          <xs:enumeration value="PI"/>
+          <xs:enumeration value="RJ"/>
+          <xs:enumeration value="RN"/>
+          <xs:enumeration value="RS"/>
+          <xs:enumeration value="RO"/>
+          <xs:enumeration value="RR"/>
+          <xs:enumeration value="SC"/>
+          <xs:enumeration value="SP"/>
+          <xs:enumeration value="SE"/>
+          <xs:enumeration value="TO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/endereco" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/endereco" xmlns:ns2="http://ibk.com.br/v1/enumeration" xmlns:ns1="http://ibk.com.br/v1/ebo">
+      <xs:import namespace="http://ibk.com.br/v1/ebo"/>
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:element name="alterarEnderecoInput" type="tns:alterarEnderecoInputType"/>
+      <xs:element name="alterarEnderecoOutput" type="tns:alterarEnderecoOutputType"/>
+      <xs:element name="inserirEnderecoInput" type="tns:inserirEnderecoInputType"/>
+      <xs:element name="inserirEnderecoOutput" type="tns:inserirEnderecoOutputType"/>
+      <xs:element name="listarEnderecoOutput" type="tns:listarEnderecoOutputType"/>
+      <xs:element name="listarEnderecoPorIdInput" type="tns:listarEnderecoPorIdInputType"/>
+      <xs:element name="listarEnderecoPorIdOutput" type="tns:listarEnderecoPorIdOutputType"/>
+      <xs:element name="removerEnderecoInput" type="tns:removerEnderecoInputType"/>
+      <xs:element name="removerEnderecoOutput" type="tns:removerEnderecoOutputType"/>
+      <xs:complexType name="listarEnderecoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lista-endereco" type="ns1:EnderecoTypeArrayOf"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirEnderecoInputType">
+        <xs:sequence>
+          <xs:element name="endereco" type="ns1:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirEnderecoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarEnderecoPorIdInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarEnderecoPorIdOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="endereco" type="ns1:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarEnderecoInputType">
+        <xs:sequence>
+          <xs:element name="endereco" type="ns1:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarEnderecoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerEnderecoInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerEnderecoOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://ibk.com.br/v1/ebo" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/ebo" xmlns:ns1="http://ibk.com.br/v1/enumeration">
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:complexType name="EnderecoTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endereco" nillable="true" type="tns:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="cep" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="numero-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="complemento" type="xs:string"/>
+          <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+          <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+          <xs:element minOccurs="0" name="uf" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="inserirEnderecoResponse">
+    <wsdl:part element="ns1:inserirEnderecoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarEnderecoResponse">
+    <wsdl:part element="ns1:alterarEnderecoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerEnderecoResponse">
+    <wsdl:part element="ns1:removerEnderecoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarEndereco">
+    <wsdl:part element="ns1:alterarEnderecoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarEndereco"></wsdl:message>
+  <wsdl:message name="EnderecoFault">
+    <wsdl:part element="ns2:servicoFault" name="EnderecoFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarEnderecoResponse">
+    <wsdl:part element="ns1:listarEnderecoOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserirEndereco">
+    <wsdl:part element="ns1:inserirEnderecoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarEnderecoPorId">
+    <wsdl:part element="ns1:listarEnderecoPorIdInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarEnderecoPorIdResponse">
+    <wsdl:part element="ns1:listarEnderecoPorIdOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerEndereco">
+    <wsdl:part element="ns1:removerEnderecoInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EnderecoPortType">
+    <wsdl:operation name="listarEndereco">
+      <wsdl:input message="ns1:listarEndereco" name="listarEndereco"></wsdl:input>
+      <wsdl:output message="ns1:listarEnderecoResponse" name="listarEnderecoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EnderecoFault" name="EnderecoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirEndereco">
+      <wsdl:input message="ns1:inserirEndereco" name="inserirEndereco"></wsdl:input>
+      <wsdl:output message="ns1:inserirEnderecoResponse" name="inserirEnderecoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EnderecoFault" name="EnderecoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarEnderecoPorId">
+      <wsdl:input message="ns1:listarEnderecoPorId" name="listarEnderecoPorId"></wsdl:input>
+      <wsdl:output message="ns1:listarEnderecoPorIdResponse" name="listarEnderecoPorIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EnderecoFault" name="EnderecoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarEndereco">
+      <wsdl:input message="ns1:alterarEndereco" name="alterarEndereco"></wsdl:input>
+      <wsdl:output message="ns1:alterarEnderecoResponse" name="alterarEnderecoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EnderecoFault" name="EnderecoFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerEndereco">
+      <wsdl:input message="ns1:removerEndereco" name="removerEndereco"></wsdl:input>
+      <wsdl:output message="ns1:removerEnderecoResponse" name="removerEnderecoResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EnderecoFault" name="EnderecoFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint></con:endpoints><con:operation id="866ef942-d82f-43d5-b73f-096fb7a76c22" isOneWay="false" action="" name="alterarEndereco" bindingOperationName="alterarEndereco" type="Request-Response" outputName="alterarEnderecoResponse" inputName="alterarEndereco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5db5bb06-6de6-42e6-8ba0-6b623da5ad6d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:end="http://ibk.com.br/v1/endereco" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <end:alterarEnderecoInput>
+         <endereco>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:cep>?</ebo:cep>
+            <!--Optional:-->
+            <ebo:nome-logradouro>?</ebo:nome-logradouro>
+            <!--Optional:-->
+            <ebo:numero-logradouro>?</ebo:numero-logradouro>
+            <!--Optional:-->
+            <ebo:complemento>?</ebo:complemento>
+            <!--Optional:-->
+            <ebo:bairro>?</ebo:bairro>
+            <!--Optional:-->
+            <ebo:municipio>?</ebo:municipio>
+            <!--Optional:-->
+            <ebo:uf>?</ebo:uf>
+         </endereco>
+      </end:alterarEnderecoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/EnderecoPortType/alterarEndereco"/></con:call></con:operation><con:operation id="36db2138-3d13-4d56-957f-22691d7111b8" isOneWay="false" action="" name="inserirEndereco" bindingOperationName="inserirEndereco" type="Request-Response" outputName="inserirEnderecoResponse" inputName="inserirEndereco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9e4e5f3c-c8d2-4c90-ac47-ffd6a9cc3b82" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:end="http://ibk.com.br/v1/endereco" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <end:inserirEnderecoInput>
+         <endereco>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:cep>?</ebo:cep>
+            <!--Optional:-->
+            <ebo:nome-logradouro>?</ebo:nome-logradouro>
+            <!--Optional:-->
+            <ebo:numero-logradouro>?</ebo:numero-logradouro>
+            <!--Optional:-->
+            <ebo:complemento>?</ebo:complemento>
+            <!--Optional:-->
+            <ebo:bairro>?</ebo:bairro>
+            <!--Optional:-->
+            <ebo:municipio>?</ebo:municipio>
+            <!--Optional:-->
+            <ebo:uf>?</ebo:uf>
+         </endereco>
+      </end:inserirEnderecoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/EnderecoPortType/inserirEndereco"/></con:call></con:operation><con:operation id="341bf71f-9842-4971-93d9-b7deea6a12e1" isOneWay="false" action="" name="listarEndereco" bindingOperationName="listarEndereco" type="Request-Response" outputName="listarEnderecoResponse" inputName="listarEndereco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="74bcdef6-294b-4e2d-81f0-513d1c4a8979" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/EnderecoPortType/listarEndereco"/></con:call></con:operation><con:operation id="3fd65988-2092-4eb0-a847-9af9459a3c62" isOneWay="false" action="" name="listarEnderecoPorId" bindingOperationName="listarEnderecoPorId" type="Request-Response" outputName="listarEnderecoPorIdResponse" inputName="listarEnderecoPorId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="44bfa657-c48b-4662-a4af-474a260ac490" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:end="http://ibk.com.br/v1/endereco">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <end:listarEnderecoPorIdInput>
+         <id>?</id>
+      </end:listarEnderecoPorIdInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/EnderecoPortType/listarEnderecoPorId"/></con:call></con:operation><con:operation id="d86b20c8-e6e9-4d10-87ed-0336a22d0a45" isOneWay="false" action="" name="removerEndereco" bindingOperationName="removerEndereco" type="Request-Response" outputName="removerEnderecoResponse" inputName="removerEndereco" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2be799fc-8a69-4eb4-bcb0-48b3e68e6b79" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/EnderecoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:end="http://ibk.com.br/v1/endereco">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <end:removerEnderecoInput>
+         <id>?</id>
+      </end:removerEnderecoInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/EnderecoPortType/removerEndereco"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="54d58e5b-bb0e-4371-aa4e-216290d79738" wsaVersion="NONE" name="ClienteServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://service.ibk.com.br/}ClienteServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService?wsdl"><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ClienteServiceImplService" targetNamespace="http://service.ibk.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.ibk.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ibk.com.br/v1/cliente">
+  <wsdl:import location="http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService?wsdl=ClientePortType.wsdl" namespace="http://ibk.com.br/v1/cliente"></wsdl:import>
+  <wsdl:binding name="ClienteServiceImplServiceSoapBinding" type="ns1:ClientePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="inserirCliente">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inserirCliente">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inserirClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClienteFault">
+        <soap:fault name="ClienteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerCliente">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerCliente">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClienteFault">
+        <soap:fault name="ClienteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarCliente">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarCliente">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClienteFault">
+        <soap:fault name="ClienteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarCliente">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="alterarCliente">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="alterarClienteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClienteFault">
+        <soap:fault name="ClienteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarClientePorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarClientePorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarClientePorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClienteFault">
+        <soap:fault name="ClienteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClienteServiceImplService">
+    <wsdl:port binding="tns:ClienteServiceImplServiceSoapBinding" name="ClienteServiceImplPort">
+      <soap:address location="http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService?wsdl=ClientePortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ClientePortType" targetNamespace="http://ibk.com.br/v1/cliente" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://ibk.com.br/v1/fault" xmlns:ns1="http://ibk.com.br/v1/cliente">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/fault" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/fault">
+      <xs:element name="servicoFault" type="tns:ServicoFaultType"/>
+      <xs:complexType name="ServicoFaultType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="servico-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="servico-erro-descricao" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro-descricao" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/enumeration" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="UfEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AC"/>
+          <xs:enumeration value="AL"/>
+          <xs:enumeration value="AP"/>
+          <xs:enumeration value="AM"/>
+          <xs:enumeration value="BA"/>
+          <xs:enumeration value="CE"/>
+          <xs:enumeration value="DF"/>
+          <xs:enumeration value="ES"/>
+          <xs:enumeration value="GO"/>
+          <xs:enumeration value="MA"/>
+          <xs:enumeration value="MT"/>
+          <xs:enumeration value="MS"/>
+          <xs:enumeration value="MG"/>
+          <xs:enumeration value="PA"/>
+          <xs:enumeration value="PB"/>
+          <xs:enumeration value="PR"/>
+          <xs:enumeration value="PE"/>
+          <xs:enumeration value="PI"/>
+          <xs:enumeration value="RJ"/>
+          <xs:enumeration value="RN"/>
+          <xs:enumeration value="RS"/>
+          <xs:enumeration value="RO"/>
+          <xs:enumeration value="RR"/>
+          <xs:enumeration value="SC"/>
+          <xs:enumeration value="SP"/>
+          <xs:enumeration value="SE"/>
+          <xs:enumeration value="TO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SexoEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MASCULINO"/>
+          <xs:enumeration value="FEMININO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EstadoCivilType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SOLTEIRO"/>
+          <xs:enumeration value="CASADO"/>
+          <xs:enumeration value="DIVORCIADO"/>
+          <xs:enumeration value="VIUVO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://ibk.com.br/v1/ebo" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/ebo" xmlns:ns1="http://ibk.com.br/v1/enumeration">
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:complexType name="ClienteType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="endereco" type="tns:EnderecoType"/>
+          <xs:element minOccurs="0" name="cpf" type="xs:string"/>
+          <xs:element minOccurs="0" name="sexo" type="xs:string"/>
+          <xs:element minOccurs="0" name="nacionalidade" type="xs:string"/>
+          <xs:element minOccurs="0" name="profissao" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="documento-identidade" type="xs:string"/>
+          <xs:element minOccurs="0" name="sigla-orgao-expedidor" type="xs:string"/>
+          <xs:element minOccurs="0" name="data-nascimento" type="xs:date"/>
+          <xs:element minOccurs="0" name="estado-civil" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="cep" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="numero-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="complemento" type="xs:string"/>
+          <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+          <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+          <xs:element minOccurs="0" name="uf" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClienteTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cliente" nillable="true" type="tns:ClienteType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endereco" nillable="true" type="tns:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/cliente" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/cliente" xmlns:ns2="http://ibk.com.br/v1/enumeration" xmlns:ns1="http://ibk.com.br/v1/ebo">
+      <xs:import namespace="http://ibk.com.br/v1/ebo"/>
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:element name="alterarClienteInput" type="tns:alterarClienteInputType"/>
+      <xs:element name="alterarClienteOutput" type="tns:alterarClienteOutputType"/>
+      <xs:element name="inserirClienteInput" type="tns:inserirClienteInputType"/>
+      <xs:element name="inserirClienteOutput" type="tns:inserirClienteOutputType"/>
+      <xs:element name="listarClienteOutput" type="tns:listarClienteOutputType"/>
+      <xs:element name="listarClientePorIdInput" type="tns:listarClientePorIdInputType"/>
+      <xs:element name="listarClientePorIdOutput" type="tns:listarClientePorIdOutputType"/>
+      <xs:element name="removerClienteInput" type="tns:removerClienteInputType"/>
+      <xs:element name="removerClienteOutput" type="tns:removerClienteOutputType"/>
+      <xs:complexType name="inserirClienteInputType">
+        <xs:sequence>
+          <xs:element name="cliente" type="ns1:ClienteType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirClienteOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerClienteInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerClienteOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarClienteOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lista-cliente" type="ns1:ClienteTypeArrayOf"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarClienteInputType">
+        <xs:sequence>
+          <xs:element name="cliente" type="ns1:ClienteType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarClienteOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarClientePorIdInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarClientePorIdOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cliente" type="ns1:ClienteType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="inserirCliente">
+    <wsdl:part element="ns1:inserirClienteInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerCliente">
+    <wsdl:part element="ns1:removerClienteInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerClienteResponse">
+    <wsdl:part element="ns1:removerClienteOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarClienteResponse">
+    <wsdl:part element="ns1:alterarClienteOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarClientePorId">
+    <wsdl:part element="ns1:listarClientePorIdInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserirClienteResponse">
+    <wsdl:part element="ns1:inserirClienteOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarClienteResponse">
+    <wsdl:part element="ns1:listarClienteOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ClienteFault">
+    <wsdl:part element="ns2:servicoFault" name="ClienteFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarClientePorIdResponse">
+    <wsdl:part element="ns1:listarClientePorIdOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarCliente"></wsdl:message>
+  <wsdl:message name="alterarCliente">
+    <wsdl:part element="ns1:alterarClienteInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClientePortType">
+    <wsdl:operation name="inserirCliente">
+      <wsdl:input message="ns1:inserirCliente" name="inserirCliente"></wsdl:input>
+      <wsdl:output message="ns1:inserirClienteResponse" name="inserirClienteResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ClienteFault" name="ClienteFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerCliente">
+      <wsdl:input message="ns1:removerCliente" name="removerCliente"></wsdl:input>
+      <wsdl:output message="ns1:removerClienteResponse" name="removerClienteResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ClienteFault" name="ClienteFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarCliente">
+      <wsdl:input message="ns1:listarCliente" name="listarCliente"></wsdl:input>
+      <wsdl:output message="ns1:listarClienteResponse" name="listarClienteResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ClienteFault" name="ClienteFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarCliente">
+      <wsdl:input message="ns1:alterarCliente" name="alterarCliente"></wsdl:input>
+      <wsdl:output message="ns1:alterarClienteResponse" name="alterarClienteResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ClienteFault" name="ClienteFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarClientePorId">
+      <wsdl:input message="ns1:listarClientePorId" name="listarClientePorId"></wsdl:input>
+      <wsdl:output message="ns1:listarClientePorIdResponse" name="listarClientePorIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ClienteFault" name="ClienteFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint></con:endpoints><con:operation id="93d75a59-4767-4894-b09e-a5a230cbdb21" isOneWay="false" action="" name="alterarCliente" bindingOperationName="alterarCliente" type="Request-Response" outputName="alterarClienteResponse" inputName="alterarCliente" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8596d473-70eb-4275-bc7d-0972ac6aae2a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://ibk.com.br/v1/cliente" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:alterarClienteInput>
+         <cliente>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:nome>?</ebo:nome>
+            <!--Optional:-->
+            <ebo:endereco>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:cep>?</ebo:cep>
+               <!--Optional:-->
+               <ebo:nome-logradouro>?</ebo:nome-logradouro>
+               <!--Optional:-->
+               <ebo:numero-logradouro>?</ebo:numero-logradouro>
+               <!--Optional:-->
+               <ebo:complemento>?</ebo:complemento>
+               <!--Optional:-->
+               <ebo:bairro>?</ebo:bairro>
+               <!--Optional:-->
+               <ebo:municipio>?</ebo:municipio>
+               <!--Optional:-->
+               <ebo:uf>?</ebo:uf>
+            </ebo:endereco>
+            <!--Optional:-->
+            <ebo:cpf>?</ebo:cpf>
+            <!--Optional:-->
+            <ebo:sexo>?</ebo:sexo>
+            <!--Optional:-->
+            <ebo:nacionalidade>?</ebo:nacionalidade>
+            <!--Optional:-->
+            <ebo:profissao>?</ebo:profissao>
+            <!--Optional:-->
+            <ebo:email>?</ebo:email>
+            <!--Optional:-->
+            <ebo:documento-identidade>?</ebo:documento-identidade>
+            <!--Optional:-->
+            <ebo:sigla-orgao-expedidor>?</ebo:sigla-orgao-expedidor>
+            <!--Optional:-->
+            <ebo:data-nascimento>?</ebo:data-nascimento>
+            <!--Optional:-->
+            <ebo:estado-civil>?</ebo:estado-civil>
+         </cliente>
+      </cli:alterarClienteInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ClientePortType/alterarCliente"/></con:call></con:operation><con:operation id="657557eb-2a79-4bd0-97c4-5386ec810d0e" isOneWay="false" action="" name="inserirCliente" bindingOperationName="inserirCliente" type="Request-Response" outputName="inserirClienteResponse" inputName="inserirCliente" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a1c45c70-e616-449b-8d59-5e6aa223a3f3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://ibk.com.br/v1/cliente" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:inserirClienteInput>
+         <cliente>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:nome>?</ebo:nome>
+            <!--Optional:-->
+            <ebo:endereco>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:cep>?</ebo:cep>
+               <!--Optional:-->
+               <ebo:nome-logradouro>?</ebo:nome-logradouro>
+               <!--Optional:-->
+               <ebo:numero-logradouro>?</ebo:numero-logradouro>
+               <!--Optional:-->
+               <ebo:complemento>?</ebo:complemento>
+               <!--Optional:-->
+               <ebo:bairro>?</ebo:bairro>
+               <!--Optional:-->
+               <ebo:municipio>?</ebo:municipio>
+               <!--Optional:-->
+               <ebo:uf>?</ebo:uf>
+            </ebo:endereco>
+            <!--Optional:-->
+            <ebo:cpf>?</ebo:cpf>
+            <!--Optional:-->
+            <ebo:sexo>?</ebo:sexo>
+            <!--Optional:-->
+            <ebo:nacionalidade>?</ebo:nacionalidade>
+            <!--Optional:-->
+            <ebo:profissao>?</ebo:profissao>
+            <!--Optional:-->
+            <ebo:email>?</ebo:email>
+            <!--Optional:-->
+            <ebo:documento-identidade>?</ebo:documento-identidade>
+            <!--Optional:-->
+            <ebo:sigla-orgao-expedidor>?</ebo:sigla-orgao-expedidor>
+            <!--Optional:-->
+            <ebo:data-nascimento>?</ebo:data-nascimento>
+            <!--Optional:-->
+            <ebo:estado-civil>?</ebo:estado-civil>
+         </cliente>
+      </cli:inserirClienteInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ClientePortType/inserirCliente"/></con:call></con:operation><con:operation id="b131eb21-49ec-4ce3-9a5c-be6092dc8103" isOneWay="false" action="" name="listarCliente" bindingOperationName="listarCliente" type="Request-Response" outputName="listarClienteResponse" inputName="listarCliente" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6244bfeb-832d-43db-a1cc-d89618193e43" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ClientePortType/listarCliente"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b5927239-27c9-4403-b2b6-d6c6951c0552" isOneWay="false" action="" name="listarClientePorId" bindingOperationName="listarClientePorId" type="Request-Response" outputName="listarClientePorIdResponse" inputName="listarClientePorId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="97b7534f-4ed7-4a6c-b5ff-7fdc8f813459" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://ibk.com.br/v1/cliente">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:listarClientePorIdInput>
+         <id>?</id>
+      </cli:listarClientePorIdInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ClientePortType/listarClientePorId"/></con:call></con:operation><con:operation id="5e8f58d4-ab19-4d14-94fa-8646b40ffdf7" isOneWay="false" action="" name="removerCliente" bindingOperationName="removerCliente" type="Request-Response" outputName="removerClienteResponse" inputName="removerCliente" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dedba04b-29a1-4bff-b4f6-fb063d769136" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://ibk.com.br/v1/cliente">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:removerClienteInput>
+         <id>?</id>
+      </cli:removerClienteInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ClientePortType/removerCliente"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="38e27109-e231-4d2f-934a-8e7e62f165b7" wsaVersion="NONE" name="ContaBancariaServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://service.ibk.com.br/}ContaBancariaServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService?wsdl"><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ContaBancariaServiceImplService" targetNamespace="http://service.ibk.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.ibk.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ibk.com.br/v1/contabancaria">
+  <wsdl:import location="http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService?wsdl=ContaBancariaPortType.wsdl" namespace="http://ibk.com.br/v1/contabancaria"></wsdl:import>
+  <wsdl:binding name="ContaBancariaServiceImplServiceSoapBinding" type="ns1:ContaBancariaPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listarContaBancariaPorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarContaBancariaPorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarContaBancariaPorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ContabancariaFault">
+        <soap:fault name="ContabancariaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarContaBancaria">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarContaBancaria">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarContaBancariaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ContabancariaFault">
+        <soap:fault name="ContabancariaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerContaBancaria">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerContaBancaria">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerContaBancariaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ContabancariaFault">
+        <soap:fault name="ContabancariaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarContaBancaria">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="alterarContaBancaria">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="alterarContaBancariaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ContabancariaFault">
+        <soap:fault name="ContabancariaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirContaBancaria">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inserirContaBancaria">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inserirContaBancariaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ContabancariaFault">
+        <soap:fault name="ContabancariaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ContaBancariaServiceImplService">
+    <wsdl:port binding="tns:ContaBancariaServiceImplServiceSoapBinding" name="ContaBancariaServiceImplPort">
+      <soap:address location="http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService?wsdl=ContaBancariaPortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ContaBancariaPortType" targetNamespace="http://ibk.com.br/v1/contabancaria" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://ibk.com.br/v1/fault" xmlns:ns1="http://ibk.com.br/v1/contabancaria">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/fault" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/fault">
+      <xs:element name="servicoFault" type="tns:ServicoFaultType"/>
+      <xs:complexType name="ServicoFaultType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="servico-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="servico-erro-descricao" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro" type="xs:string"/>
+          <xs:element minOccurs="0" name="negocio-erro-descricao" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/enumeration" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="UfEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AC"/>
+          <xs:enumeration value="AL"/>
+          <xs:enumeration value="AP"/>
+          <xs:enumeration value="AM"/>
+          <xs:enumeration value="BA"/>
+          <xs:enumeration value="CE"/>
+          <xs:enumeration value="DF"/>
+          <xs:enumeration value="ES"/>
+          <xs:enumeration value="GO"/>
+          <xs:enumeration value="MA"/>
+          <xs:enumeration value="MT"/>
+          <xs:enumeration value="MS"/>
+          <xs:enumeration value="MG"/>
+          <xs:enumeration value="PA"/>
+          <xs:enumeration value="PB"/>
+          <xs:enumeration value="PR"/>
+          <xs:enumeration value="PE"/>
+          <xs:enumeration value="PI"/>
+          <xs:enumeration value="RJ"/>
+          <xs:enumeration value="RN"/>
+          <xs:enumeration value="RS"/>
+          <xs:enumeration value="RO"/>
+          <xs:enumeration value="RR"/>
+          <xs:enumeration value="SC"/>
+          <xs:enumeration value="SP"/>
+          <xs:enumeration value="SE"/>
+          <xs:enumeration value="TO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SexoEnumType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MASCULINO"/>
+          <xs:enumeration value="FEMININO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EstadoCivilType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SOLTEIRO"/>
+          <xs:enumeration value="CASADO"/>
+          <xs:enumeration value="DIVORCIADO"/>
+          <xs:enumeration value="VIUVO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://ibk.com.br/v1/ebo" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/ebo" xmlns:ns1="http://ibk.com.br/v1/enumeration">
+      <xs:import namespace="http://ibk.com.br/v1/enumeration"/>
+      <xs:complexType name="ContaBancariaType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="numero-agencia" type="xs:string"/>
+          <xs:element minOccurs="0" name="digito-verificador-agencia" type="xs:string"/>
+          <xs:element minOccurs="0" name="numero-conta" type="xs:string"/>
+          <xs:element minOccurs="0" name="digito-verificador-conta" type="xs:string"/>
+          <xs:element minOccurs="0" name="banco" type="tns:BancoType"/>
+          <xs:element name="saldo" type="xs:double"/>
+          <xs:element minOccurs="0" name="cliente" type="tns:ClienteType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BancoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClienteType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="endereco" type="tns:EnderecoType"/>
+          <xs:element minOccurs="0" name="cpf" type="xs:string"/>
+          <xs:element minOccurs="0" name="sexo" type="xs:string"/>
+          <xs:element minOccurs="0" name="nacionalidade" type="xs:string"/>
+          <xs:element minOccurs="0" name="profissao" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="documento-identidade" type="xs:string"/>
+          <xs:element minOccurs="0" name="sigla-orgao-expedidor" type="xs:string"/>
+          <xs:element minOccurs="0" name="data-nascimento" type="xs:date"/>
+          <xs:element minOccurs="0" name="estado-civil" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="cep" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="numero-logradouro" type="xs:string"/>
+          <xs:element minOccurs="0" name="complemento" type="xs:string"/>
+          <xs:element minOccurs="0" name="bairro" type="xs:string"/>
+          <xs:element minOccurs="0" name="municipio" type="xs:string"/>
+          <xs:element minOccurs="0" name="uf" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContaBancariaTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conta-bancaria" type="tns:ContaBancariaType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EnderecoTypeArrayOf">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endereco" nillable="true" type="tns:EnderecoType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://ibk.com.br/v1/contabancaria" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ibk.com.br/v1/contabancaria" xmlns:ns1="http://ibk.com.br/v1/ebo">
+      <xs:import namespace="http://ibk.com.br/v1/ebo"/>
+      <xs:element name="alterarContaBancariaInput" type="tns:alterarContaBancariaInputType"/>
+      <xs:element name="alterarContaBancariaOutput" type="tns:alterarContaBancariaOutputType"/>
+      <xs:element name="inserirContaBancariaInput" type="tns:inserirContaBancariaInputType"/>
+      <xs:element name="inserirContaBancariaOutput" type="tns:inserirContaBancariaOutputType"/>
+      <xs:element name="listarContaBancariaOutput" type="tns:listarContaBancariaOutputType"/>
+      <xs:element name="listarContaBancariaPorIdInput" type="tns:listarContaBancariaPorIdInputType"/>
+      <xs:element name="listarContaBancariaPorIdOutput" type="tns:listarContaBancariaPorIdOutputType"/>
+      <xs:element name="removerContaBancariaInput" type="tns:removerContaBancariaInputType"/>
+      <xs:element name="removerContaBancariaOutput" type="tns:removerContaBancariaOutputType"/>
+      <xs:complexType name="listarContaBancariaPorIdInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarContaBancariaPorIdOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contabancaria" type="ns1:ContaBancariaType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarContaBancariaOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lista-contabancaria" type="ns1:ContaBancariaTypeArrayOf"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerContaBancariaInputType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removerContaBancariaOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarContaBancariaInputType">
+        <xs:sequence>
+          <xs:element name="contabancaria" type="ns1:ContaBancariaType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alterarContaBancariaOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirContaBancariaInputType">
+        <xs:sequence>
+          <xs:element name="contabancaria" type="ns1:ContaBancariaType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="inserirContaBancariaOutputType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultado" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ContabancariaFault">
+    <wsdl:part element="ns2:servicoFault" name="ContabancariaFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarContaBancariaResponse">
+    <wsdl:part element="ns1:listarContaBancariaOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarContaBancaria"></wsdl:message>
+  <wsdl:message name="alterarContaBancaria">
+    <wsdl:part element="ns1:alterarContaBancariaInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserirContaBancariaResponse">
+    <wsdl:part element="ns1:inserirContaBancariaOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserirContaBancaria">
+    <wsdl:part element="ns1:inserirContaBancariaInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarContaBancariaPorIdResponse">
+    <wsdl:part element="ns1:listarContaBancariaPorIdOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alterarContaBancariaResponse">
+    <wsdl:part element="ns1:alterarContaBancariaOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerContaBancariaResponse">
+    <wsdl:part element="ns1:removerContaBancariaOutput" name="output"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarContaBancariaPorId">
+    <wsdl:part element="ns1:listarContaBancariaPorIdInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerContaBancaria">
+    <wsdl:part element="ns1:removerContaBancariaInput" name="input"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ContaBancariaPortType">
+    <wsdl:operation name="listarContaBancariaPorId">
+      <wsdl:input message="ns1:listarContaBancariaPorId" name="listarContaBancariaPorId"></wsdl:input>
+      <wsdl:output message="ns1:listarContaBancariaPorIdResponse" name="listarContaBancariaPorIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ContabancariaFault" name="ContabancariaFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarContaBancaria">
+      <wsdl:input message="ns1:listarContaBancaria" name="listarContaBancaria"></wsdl:input>
+      <wsdl:output message="ns1:listarContaBancariaResponse" name="listarContaBancariaResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ContabancariaFault" name="ContabancariaFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerContaBancaria">
+      <wsdl:input message="ns1:removerContaBancaria" name="removerContaBancaria"></wsdl:input>
+      <wsdl:output message="ns1:removerContaBancariaResponse" name="removerContaBancariaResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ContabancariaFault" name="ContabancariaFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="alterarContaBancaria">
+      <wsdl:input message="ns1:alterarContaBancaria" name="alterarContaBancaria"></wsdl:input>
+      <wsdl:output message="ns1:alterarContaBancariaResponse" name="alterarContaBancariaResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ContabancariaFault" name="ContabancariaFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserirContaBancaria">
+      <wsdl:input message="ns1:inserirContaBancaria" name="inserirContaBancaria"></wsdl:input>
+      <wsdl:output message="ns1:inserirContaBancariaResponse" name="inserirContaBancariaResponse"></wsdl:output>
+      <wsdl:fault message="ns1:ContabancariaFault" name="ContabancariaFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint></con:endpoints><con:operation id="2ab0e0c4-9399-4e55-890b-ddae68f95791" isOneWay="false" action="" name="alterarContaBancaria" bindingOperationName="alterarContaBancaria" type="Request-Response" outputName="alterarContaBancariaResponse" inputName="alterarContaBancaria" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7731095d-9253-4e01-bfa9-fe9235bf2efe" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ibk.com.br/v1/contabancaria" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:alterarContaBancariaInput>
+         <contabancaria>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:numero-agencia>?</ebo:numero-agencia>
+            <!--Optional:-->
+            <ebo:digito-verificador-agencia>?</ebo:digito-verificador-agencia>
+            <!--Optional:-->
+            <ebo:numero-conta>?</ebo:numero-conta>
+            <!--Optional:-->
+            <ebo:digito-verificador-conta>?</ebo:digito-verificador-conta>
+            <!--Optional:-->
+            <ebo:banco>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:nome>?</ebo:nome>
+            </ebo:banco>
+            <ebo:saldo>?</ebo:saldo>
+            <!--Optional:-->
+            <ebo:cliente>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:nome>?</ebo:nome>
+               <!--Optional:-->
+               <ebo:endereco>
+                  <!--Optional:-->
+                  <ebo:codigo>?</ebo:codigo>
+                  <!--Optional:-->
+                  <ebo:cep>?</ebo:cep>
+                  <!--Optional:-->
+                  <ebo:nome-logradouro>?</ebo:nome-logradouro>
+                  <!--Optional:-->
+                  <ebo:numero-logradouro>?</ebo:numero-logradouro>
+                  <!--Optional:-->
+                  <ebo:complemento>?</ebo:complemento>
+                  <!--Optional:-->
+                  <ebo:bairro>?</ebo:bairro>
+                  <!--Optional:-->
+                  <ebo:municipio>?</ebo:municipio>
+                  <!--Optional:-->
+                  <ebo:uf>?</ebo:uf>
+               </ebo:endereco>
+               <!--Optional:-->
+               <ebo:cpf>?</ebo:cpf>
+               <!--Optional:-->
+               <ebo:sexo>?</ebo:sexo>
+               <!--Optional:-->
+               <ebo:nacionalidade>?</ebo:nacionalidade>
+               <!--Optional:-->
+               <ebo:profissao>?</ebo:profissao>
+               <!--Optional:-->
+               <ebo:email>?</ebo:email>
+               <!--Optional:-->
+               <ebo:documento-identidade>?</ebo:documento-identidade>
+               <!--Optional:-->
+               <ebo:sigla-orgao-expedidor>?</ebo:sigla-orgao-expedidor>
+               <!--Optional:-->
+               <ebo:data-nascimento>?</ebo:data-nascimento>
+               <!--Optional:-->
+               <ebo:estado-civil>?</ebo:estado-civil>
+            </ebo:cliente>
+         </contabancaria>
+      </con:alterarContaBancariaInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ContaBancariaPortType/alterarContaBancaria"/></con:call></con:operation><con:operation id="2c0ae1f0-bf80-4bc7-a364-066693c80f88" isOneWay="false" action="" name="inserirContaBancaria" bindingOperationName="inserirContaBancaria" type="Request-Response" outputName="inserirContaBancariaResponse" inputName="inserirContaBancaria" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="316fd359-13c3-47a1-b2fb-7aa14272e8d1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ibk.com.br/v1/contabancaria" xmlns:ebo="http://ibk.com.br/v1/ebo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:inserirContaBancariaInput>
+         <contabancaria>
+            <!--Optional:-->
+            <ebo:codigo>?</ebo:codigo>
+            <!--Optional:-->
+            <ebo:numero-agencia>?</ebo:numero-agencia>
+            <!--Optional:-->
+            <ebo:digito-verificador-agencia>?</ebo:digito-verificador-agencia>
+            <!--Optional:-->
+            <ebo:numero-conta>?</ebo:numero-conta>
+            <!--Optional:-->
+            <ebo:digito-verificador-conta>?</ebo:digito-verificador-conta>
+            <!--Optional:-->
+            <ebo:banco>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:nome>?</ebo:nome>
+            </ebo:banco>
+            <ebo:saldo>?</ebo:saldo>
+            <!--Optional:-->
+            <ebo:cliente>
+               <!--Optional:-->
+               <ebo:codigo>?</ebo:codigo>
+               <!--Optional:-->
+               <ebo:nome>?</ebo:nome>
+               <!--Optional:-->
+               <ebo:endereco>
+                  <!--Optional:-->
+                  <ebo:codigo>?</ebo:codigo>
+                  <!--Optional:-->
+                  <ebo:cep>?</ebo:cep>
+                  <!--Optional:-->
+                  <ebo:nome-logradouro>?</ebo:nome-logradouro>
+                  <!--Optional:-->
+                  <ebo:numero-logradouro>?</ebo:numero-logradouro>
+                  <!--Optional:-->
+                  <ebo:complemento>?</ebo:complemento>
+                  <!--Optional:-->
+                  <ebo:bairro>?</ebo:bairro>
+                  <!--Optional:-->
+                  <ebo:municipio>?</ebo:municipio>
+                  <!--Optional:-->
+                  <ebo:uf>?</ebo:uf>
+               </ebo:endereco>
+               <!--Optional:-->
+               <ebo:cpf>?</ebo:cpf>
+               <!--Optional:-->
+               <ebo:sexo>?</ebo:sexo>
+               <!--Optional:-->
+               <ebo:nacionalidade>?</ebo:nacionalidade>
+               <!--Optional:-->
+               <ebo:profissao>?</ebo:profissao>
+               <!--Optional:-->
+               <ebo:email>?</ebo:email>
+               <!--Optional:-->
+               <ebo:documento-identidade>?</ebo:documento-identidade>
+               <!--Optional:-->
+               <ebo:sigla-orgao-expedidor>?</ebo:sigla-orgao-expedidor>
+               <!--Optional:-->
+               <ebo:data-nascimento>?</ebo:data-nascimento>
+               <!--Optional:-->
+               <ebo:estado-civil>?</ebo:estado-civil>
+            </ebo:cliente>
+         </contabancaria>
+      </con:inserirContaBancariaInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ContaBancariaPortType/inserirContaBancaria"/></con:call></con:operation><con:operation id="99343288-4fbd-40b1-a9f7-f050cd3219fb" isOneWay="false" action="" name="listarContaBancaria" bindingOperationName="listarContaBancaria" type="Request-Response" outputName="listarContaBancariaResponse" inputName="listarContaBancaria" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3bf4a626-73b4-47a2-be6b-59abdaefbe96" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ContaBancariaPortType/listarContaBancaria"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="16c12f3c-7534-4fcd-a1f4-bbb57a87257b" isOneWay="false" action="" name="listarContaBancariaPorId" bindingOperationName="listarContaBancariaPorId" type="Request-Response" outputName="listarContaBancariaPorIdResponse" inputName="listarContaBancariaPorId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="33d38a13-8286-4a5e-86a9-3d4ae63997d1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ibk.com.br/v1/contabancaria">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:listarContaBancariaPorIdInput>
+         <id>?</id>
+      </con:listarContaBancariaPorIdInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ContaBancariaPortType/listarContaBancariaPorId"/></con:call></con:operation><con:operation id="9feea1cf-4a2b-4c8e-b3cd-1e1ebacbc183" isOneWay="false" action="" name="removerContaBancaria" bindingOperationName="removerContaBancaria" type="Request-Response" outputName="removerContaBancariaResponse" inputName="removerContaBancaria" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="093dfeeb-94b5-4c21-a55f-7f400c02e833" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ibk-sample-soap/services/v1/banco/ContaBancariaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ibk.com.br/v1/contabancaria">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:removerContaBancariaInput>
+         <id>?</id>
+      </con:removerContaBancariaInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.ibk.com.br/ContaBancariaPortType/removerContaBancaria"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

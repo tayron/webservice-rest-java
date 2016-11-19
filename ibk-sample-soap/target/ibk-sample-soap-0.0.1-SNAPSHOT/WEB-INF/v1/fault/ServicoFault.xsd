@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema version="1.0" elementFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ibk.com.br/v1/fault" xmlns:tns="http://ibk.com.br/v1/fault">
+
+    <xsd:element name="servicoFault" type="tns:ServicoFaultType" />
+    <xsd:complexType name="ServicoFaultType">
+        <xsd:sequence>
+            <xsd:element name="servico-erro" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="servico-erro-descricao" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="negocio-erro" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="negocio-erro-descricao" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

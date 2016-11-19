@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ClienteService" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    targetNamespace="http://ibk.com.br/v1/cliente" 
+    xmlns:tns="http://ibk.com.br/v1/cliente" 
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/cliente">
+            <xsd:include schemaLocation="ClienteService.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="listarClienteInputMsg">
+    </wsdl:message>
+    
+    <wsdl:message name="listarClienteOutputMsg">
+        <wsdl:part name="output" element="tns:listarClienteOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="listarClientePorIdInputMsg">
+        <wsdl:part name="input" element="tns:listarClientePorIdInput" />
+    </wsdl:message>
+    <wsdl:message name="listarClientePorIdOutputMsg">
+        <wsdl:part name="output" element="tns:listarClientePorIdOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="inserirClienteInputMsg">
+        <wsdl:part name="input" element="tns:inserirClienteInput" />
+    </wsdl:message>
+    <wsdl:message name="inserirClienteOutputMsg">
+        <wsdl:part name="output" element="tns:inserirClienteOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="alterarClienteInputMsg">
+        <wsdl:part name="input" element="tns:alterarClienteInput" />
+    </wsdl:message>
+    <wsdl:message name="alterarClienteOutputMsg">
+        <wsdl:part name="output" element="tns:alterarClienteOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="removerClienteInputMsg">
+        <wsdl:part name="input" element="tns:removerClienteInput" />
+    </wsdl:message>
+    <wsdl:message name="removerClienteOutputMsg">
+        <wsdl:part name="output" element="tns:removerClienteOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="clienteFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="ClientePortType">
+        <wsdl:operation name="listarCliente">
+            <wsdl:input name="listarClienteInput" message="tns:listarClienteInputMsg" />
+            <wsdl:output name="listarClienteOutput" message="tns:listarClienteOutputMsg" />
+            <wsdl:fault name="fault" message="tns:clienteFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="listarClientePorId">
+            <wsdl:input name="listarClientePorIdInput" message="tns:listarClientePorIdInputMsg" />
+            <wsdl:output name="listarClientePorIdOutput" message="tns:listarClientePorIdOutputMsg" />
+            <wsdl:fault name="fault" message="tns:clienteFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="inserirCliente">
+            <wsdl:input name="inserirClienteInput" message="tns:inserirClienteInputMsg" />
+            <wsdl:output name="inserirClienteOutput" message="tns:inserirClienteOutputMsg" />
+            <wsdl:fault name="fault" message="tns:clienteFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="alterarCliente">
+            <wsdl:input name="alterarClienteInput" message="tns:alterarClienteInputMsg" />
+            <wsdl:output name="alterarClienteOutput" message="tns:alterarClienteOutputMsg" />
+            <wsdl:fault name="fault" message="tns:clienteFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="removerCliente">
+            <wsdl:input name="removerClienteInput" message="tns:removerClienteInputMsg" />
+            <wsdl:output name="removerClienteOutput" message="tns:removerClienteOutputMsg" />
+            <wsdl:fault name="fault" message="tns:clienteFault" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="ClienteBinding" type="tns:ClientePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="listarCliente">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarClienteInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarClienteOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listarClientePorId">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarClientePorIdInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarClientePorIdOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="inserirCliente">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="inserirClienteInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="inserirClienteOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="alterarCliente">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="alterarClienteInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="alterarClienteOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="removerCliente">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="removerClienteInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="removerClienteOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="ClienteService">
+        <wsdl:port name="ClientePort" binding="tns:ClienteBinding">
+            <soap:address location="http://localhost:8080/ibk-sample-soap/v1/cliente/ClienteService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

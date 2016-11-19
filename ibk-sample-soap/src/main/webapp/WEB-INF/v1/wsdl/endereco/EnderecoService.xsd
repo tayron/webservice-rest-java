@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+        version="1.0"
+        elementFormDefault="unqualified"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ibk.com.br/v1/endereco"
+        xmlns:tns="http://ibk.com.br/v1/endereco"
+        xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+    <xsd:import namespace="http://ibk.com.br/v1/ebo" schemaLocation="../../ebo/Endereco.xsd" />
+
+    <xsd:element name="listarEnderecoOutput" type="tns:listarEnderecoOutputType" />
+    
+    <xsd:complexType name="listarEnderecoOutputType">
+        <xsd:sequence>
+            <xsd:element name="lista-endereco" type="ebo:EnderecoTypeArrayOf" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="listarEnderecoPorIdInput" type="tns:listarEnderecoPorIdInputType" />
+    <xsd:element name="listarEnderecoPorIdOutput" type="tns:listarEnderecoPorIdOutputType" />
+    
+    <xsd:complexType name="listarEnderecoPorIdInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarEnderecoPorIdOutputType">
+        <xsd:sequence>
+            <xsd:element name="endereco" type="ebo:EnderecoType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="inserirEnderecoInput" type="tns:inserirEnderecoInputType" />
+    <xsd:element name="inserirEnderecoOutput" type="tns:inserirEnderecoOutputType" />
+    
+    <xsd:complexType name="inserirEnderecoInputType">
+        <xsd:sequence>
+            <xsd:element name="endereco" type="ebo:EnderecoType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inserirEnderecoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="alterarEnderecoInput" type="tns:alterarEnderecoInputType" />
+    <xsd:element name="alterarEnderecoOutput" type="tns:alterarEnderecoOutputType" />
+    
+    <xsd:complexType name="alterarEnderecoInputType">
+        <xsd:sequence>
+            <xsd:element name="endereco" type="ebo:EnderecoType" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="alterarEnderecoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="removerEnderecoInput" type="tns:removerEnderecoInputType" />
+    <xsd:element name="removerEnderecoOutput" type="tns:removerEnderecoOutputType" />
+    
+    <xsd:complexType name="removerEnderecoInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="removerEnderecoOutputType">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

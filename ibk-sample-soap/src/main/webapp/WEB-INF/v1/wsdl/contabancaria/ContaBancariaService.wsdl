@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ContaBancariaService" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    targetNamespace="http://ibk.com.br/v1/contabancaria" 
+    xmlns:tns="http://ibk.com.br/v1/contabancaria" 
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/contabancaria">
+            <xsd:include schemaLocation="ContaBancariaService.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="listarContaBancariaInputMsg">
+    </wsdl:message>
+    
+    <wsdl:message name="listarContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:listarContaBancariaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="listarContaBancariaPorIdInputMsg">
+        <wsdl:part name="input" element="tns:listarContaBancariaPorIdInput" />
+    </wsdl:message>
+    <wsdl:message name="listarContaBancariaPorIdOutputMsg">
+        <wsdl:part name="output" element="tns:listarContaBancariaPorIdOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="inserirContaBancariaInputMsg">
+        <wsdl:part name="input" element="tns:inserirContaBancariaInput" />
+    </wsdl:message>
+    <wsdl:message name="inserirContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:inserirContaBancariaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="alterarContaBancariaInputMsg">
+        <wsdl:part name="input" element="tns:alterarContaBancariaInput" />
+    </wsdl:message>
+    <wsdl:message name="alterarContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:alterarContaBancariaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="removerContaBancariaInputMsg">
+        <wsdl:part name="input" element="tns:removerContaBancariaInput" />
+    </wsdl:message>
+    <wsdl:message name="removerContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:removerContaBancariaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="contabancariaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="ContaBancariaPortType">
+        <wsdl:operation name="listarContaBancaria">
+            <wsdl:input name="listarContaBancariaInput" message="tns:listarContaBancariaInputMsg" />
+            <wsdl:output name="listarContaBancariaOutput" message="tns:listarContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contabancariaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="listarContaBancariaPorId">
+            <wsdl:input name="listarContaBancariaPorIdInput" message="tns:listarContaBancariaPorIdInputMsg" />
+            <wsdl:output name="listarContaBancariaPorIdOutput" message="tns:listarContaBancariaPorIdOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contabancariaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="inserirContaBancaria">
+            <wsdl:input name="inserirContaBancariaInput" message="tns:inserirContaBancariaInputMsg" />
+            <wsdl:output name="inserirContaBancariaOutput" message="tns:inserirContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contabancariaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="alterarContaBancaria">
+            <wsdl:input name="alterarContaBancariaInput" message="tns:alterarContaBancariaInputMsg" />
+            <wsdl:output name="alterarContaBancariaOutput" message="tns:alterarContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contabancariaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="removerContaBancaria">
+            <wsdl:input name="removerContaBancariaInput" message="tns:removerContaBancariaInputMsg" />
+            <wsdl:output name="removerContaBancariaOutput" message="tns:removerContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contabancariaFault" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="ContaBancariaBinding" type="tns:ContaBancariaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="listarContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listarContaBancariaPorId">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="listarContaBancariaPorIdInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="listarContaBancariaPorIdOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="inserirContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="inserirContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="inserirContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="alterarContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="alterarContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="alterarContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="removerContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="removerContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="removerContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="ContaBancariaService">
+        <wsdl:port name="ContaBancariaPort" binding="tns:ContaBancariaBinding">
+            <soap:address location="http://localhost:8080/ibk-sample-soap/v1/contabancaria/ContaBancariaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
